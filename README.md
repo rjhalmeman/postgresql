@@ -8,7 +8,7 @@ sudo apt install postgresql postgresql-contrib
 sudo systemctl status postgresql
 ```
 
-#usei script de [link](https://gist.githubusercontent.com/lbbedendo/6be08a6159d68be56642bc749f54778d/raw/6f3a01153ddacf33a6d73c575f18103234b7d713/pgadmin4_install_linux_mint.sh)
+### Usei script desse [link](https://gist.githubusercontent.com/lbbedendo/6be08a6159d68be56642bc749f54778d/raw/6f3a01153ddacf33a6d73c575f18103234b7d713/pgadmin4_install_linux_mint.sh)
 
 ```sh
 # Adaptado da página oficial do pgAdmin: https://www.pgadmin.org/download/pgadmin-4-apt/
@@ -78,6 +78,13 @@ CREATE DATABASE meu_banco_de_dados OWNER novo_usuario;
 \q
 
 ```
-Teste a conexão com o novo usuário:
+### Teste a conexão com o novo usuário:
+```sh
 
-bashpsql -U novo_usuario -h localhost -d meu_banco_de_dados
+psql -U novo_usuario -h localhost -d meu_banco_de_dados
+```
+
+# Depois que criei um novo usuário e senha, daí acessei via pgAdmin Web
+http://127.0.0.1/pgadmin4/browser/
+
+
