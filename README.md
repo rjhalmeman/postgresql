@@ -41,3 +41,43 @@ sudo apt install pgadmin4-web
 sudo /usr/pgadmin4/bin/setup-web.sh
 
 ```
+
+## Configure um usuário e senha no PostgreSQL:
+### esse é o usuário padrão (postgres)
+
+sudo -u postgres psql
+
+### Depois, no prompt do PostgreSQL:
+ALTER USER postgres WITH PASSWORD 'sua_senha';
+### para sair do prompt do postgres
+\q
+
+# Criar um usuário específico
+sudo -u postgres psql
+
+1. Dentro do prompt do PostgreSQL (psql), crie um novo usuário (substitua "novo_usuario" pelo nome que deseja e "senha_segura" por uma senha forte):
+
+```sql
+
+CREATE USER novo_usuario WITH PASSWORD 'senha_segura';
+
+# Para dar privilégios de superusuário (opcional, apenas se necessário):
+
+ALTER USER novo_usuario WITH SUPERUSER;
+
+# Para permitir que o usuário crie bancos de dados:
+
+ALTER USER novo_usuario WITH CREATEDB;
+
+#Para criar um banco de dados e dar propriedade ao novo usuário:
+
+CREATE DATABASE meu_banco_de_dados OWNER novo_usuario;
+
+#Para sair do prompt do PostgreSQL:
+
+\q
+
+```
+Teste a conexão com o novo usuário:
+
+bashpsql -U novo_usuario -h localhost -d meu_banco_de_dados
