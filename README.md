@@ -1,6 +1,6 @@
 # postgresql
 
-#instalação no Linux Mint
+# Instalação no Linux Mint
 
 ```sh
 sudo apt update && sudo apt upgrade
@@ -86,5 +86,38 @@ psql -U novo_usuario -h localhost -d meu_banco_de_dados
 
 # Depois que criei um novo usuário e senha, daí acessei via pgAdmin Web
 http://127.0.0.1/pgadmin4/browser/
+
+--- 
+
+# No xubunto, a instalação é um pouco diferente do linux Mint.
+
+### Configurar o Repositório no Xubuntu 24.04
+### Instalar a chave pública do repositório (se ainda não foi feito):
+```sh
+sudo curl https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo apt-key add
+```
+
+### Criar o arquivo de configuração do repositório:
+```sh
+sudo sh -c '. /etc/os-release && echo "deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$VERSION_CODENAME pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && sudo apt update'
+```
+
+### Note que usei /etc/os-release e $VERSION_CODENAME em vez de /etc/upstream-release/lsb-release e $DISTRIB_CODENAME. Isso é mais adequado para sistemas baseados no Ubuntu mais recentes como o 24.04.
+
+### Instalar o pgAdmin para os modos desktop e web:
+```sh
+sudo apt install pgadmin4
+```
+
+### Instalar somente para o modo desktop:
+```sh 
+sudo apt install pgadmin4-desktop
+```
+
+### Instalar somente para o modo web:
+```sh
+sudo apt install pgadmin4-web
+```
+# A configuração, após instalação, é a mesma que para o Mint.
 
 
